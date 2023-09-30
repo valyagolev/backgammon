@@ -1,6 +1,6 @@
 /// Implements the board
 mod board;
-pub use board::{Board, BoardDisplay, Move};
+pub use board::{Board, BoardDisplay, Move, PlayerBoard};
 /// Implements the double dice or cube
 mod cube;
 pub use cube::Cube;

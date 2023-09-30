@@ -27,7 +27,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, PartialEq, Deserialize, Default)]
 pub struct Board {
-    raw_board: (PlayerBoard, PlayerBoard),
+    /// Boards from the point-of-view of each player
+    pub raw_board: (PlayerBoard, PlayerBoard),
 }
 
 /// Represents the Backgammon board for both players (to be used for graphical representation).
@@ -199,10 +200,13 @@ impl Board {
 
 /// Represents the Backgammon board for one player
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-struct PlayerBoard {
-    board: [u8; 24],
-    bar: u8,
-    off: u8,
+pub struct PlayerBoard {
+    /// Checkers on board
+    pub board: [u8; 24],
+    /// Checkers on bar
+    pub bar: u8,
+    /// Checkers removed
+    pub off: u8,
 }
 
 impl Default for PlayerBoard {
